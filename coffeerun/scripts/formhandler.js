@@ -44,22 +44,30 @@ var slider = document.getElementById("strengthLevel");
 var sliderOutput = document.getElementById("strengthOutput");
 var sliderLabel = document.getElementById("strengthLabel");
 
+//sets initial value color (30) to green
 sliderOutput.style.color = "green";
 sliderLabel.style.color = "green";
 
+//function for slider color
 slider.addEventListener("input", function() {
     sliderOutput.value = slider.value
 
-    var intensityColor;
-    if (slider.value < 35) {
-        intensityColor = "green";
+    var color;
+    if (slider.value < 21) {
+        color = "blue";
     }
-    else if (slider.value < 70) {
-        intensityColor = "#aaaa00";
+    else if (slider.value < 41) {
+        color = "green";
+    }
+    else if (slider.value < 61) {
+        color = "#aaaa00";
+    }
+    else if (slider.value < 81) {
+        color = "orange";
     }
     else {
-        intensityColor = "red";
+        color = "red";
     }
-    sliderOutput.style.color = intensityColor;
-    sliderLabel.style.color = intensityColor;
+    sliderOutput.style.color = color;
+    sliderLabel.style.color = color;
 });
