@@ -15,6 +15,19 @@
 
 
     }
+    
+    FormHandler.prototype.displayModal = function(email) {
+        console.log('displaying modal...');
+        $('#myModal').modal('show');
+        $('#myModal').on('hide.bs.modal', function() {
+            var $activeElement = $(document.activeElement);
+            if ($activeElement.is('[data-dismiss]')) {
+                if ($activeElement[0].id == 'do-use') {
+                    this.achievments.add(email, 'yes');
+                }
+            }
+        }.bind(this));
+    };
 
     FormHandler.prototype.addSubmitHandler = function (fn) {
         console.log('Setting submit handler for form');
